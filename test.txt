@@ -1,0 +1,3 @@
+# README
+README explains the flow and coding steps in order to achieve all the 
+requirements of this assignment
