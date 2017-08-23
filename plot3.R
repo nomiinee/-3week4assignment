@@ -1,0 +1,10 @@
+setwd("C:/Users/Jirawech/Documents/#4assignment1")
+data<-read.csv("household_power_consumption.txt", sep= ";")
+ydata<-subset(data, Date == "1/2/2007" | Date == "2/2/2007")
+ydata<-transform(ydata, Date= strptime(ydata$Date, format ='%d/%m/%Y') )
+ydata$Date.time<-strptime(paste(ydata$Date, ydata$Time, sep="/"), format ='%Y-%m-%d/%H:%M:%S') 
+png(filename="plot3.png", width = 480 , height = 480)
+x1<-ydata$Date.time
+yVol<-as.numeric(as.character(ydata$Voltage))
+plot(x1,yVol, ylab="Volage",xlab= "datetime", pch=' ', type = 'o')
+dev.off()
